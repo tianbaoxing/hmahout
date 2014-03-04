@@ -2,7 +2,7 @@
 <html> 
 <head> 
     <meta charset="utf-8"> 
-    <title>HadoopAlgorithm1.0</title>
+    <title>hmahout</title>
     <link rel="stylesheet" href="css/index.css"> 
 </head>
 <body>
