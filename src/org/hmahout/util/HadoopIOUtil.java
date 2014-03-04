@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.URI;
 import java.util.Map;
@@ -48,17 +49,23 @@ public class HadoopIOUtil {
 		String data="";
 		Path filePath= new Path(path);
 		FileSystem fs =null;  
-        FSDataInputStream in = null;  
+       FSDataInputStream fin = null;  
+       BufferedReader reader = null;
+       String line = null;
         try {  
-          fs=FileSystem.get(filePath.toUri(), getConf()); 
-          in=fs.open(filePath);
-          data= in.readUTF();  
+           fs=FileSystem.get(filePath.toUri(), getConf()); 
+           fin=fs.open(filePath);
+           reader = new BufferedReader(new InputStreamReader(fin, "UTF-8"));
+           while((line=reader.readLine())!=null){
+        	   data = data+line;
+           }
         }catch(Exception e){
         	log.info("read hdfs file "+path+" error:\n"+e.getMessage());
+        	e.printStackTrace();
         }finally {  
         	try {
-	        	if(in!=null){
-					in.close();
+	        	if(fin!=null){
+					fin.close();
 	        	}
 	        	if(fs!=null){
 	        		fs.close();
