@@ -8,7 +8,7 @@
 <body>
     <div id="wrap" class="clearfix">
     	<div id="header" class="clearfix">
-    		<h1><a href="index.jsp">云计算平台</a></h1>
+    		<h1><a href="index.jsp">云计算(大数据)平台</a></h1>
     	</div>
     	<div id="sidenav">
     		<ul>
@@ -33,6 +33,12 @@
     				<ul class="hidden">
     					<li><a href="hadoopmr/hadoop_sequence_read.jsp"><span class="triggle"></span>序列文件读取</a></li>
     					<li><a href="hadoopmr/hadoop_seq2txt.jsp"><span class="triggle"></span>序列文件转化为txt</a></li>
+    				</ul>
+    			</li>
+    			<li class="sidenav-item">
+    				<a href="" class="sidenav-title">mahout推荐算法</a>
+    				<ul class="hidden">
+    					<li><a href="recommender/recommder_movice.jsp"><span class="triggle"></span>推荐电影</a></li>
     				</ul>
     			</li>
     			<li class="sidenav-item">
