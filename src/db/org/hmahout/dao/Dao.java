@@ -236,6 +236,11 @@ public class Dao {
 		return page;
 	}
 	
+	public <T> List<T> query(Class<T> cls,String tableName) throws DaoException {
+		String sql = "select * from "+tableName;
+		return query(cls, sql, new Object[0]);
+	}
+	
 	public <T> List<T> query( Class<T> cls,String sql, Object[] args)throws DaoException {
 
 		List<T> resList = QueryHelper.query(cls, sql, args);
