@@ -9,9 +9,17 @@ public class Kpi {
     private String body_bytes_sent;// 记录发送给客户端文件主体内容大小
     private String http_referer;// 用来记录从那个页面链接访问过来的
     private String http_user_agent;// 记录客户浏览器的相关信息
+    private String httP_user_agent_info;
     private String method;//请求方法 get post
     private String http_version; //http版本
     
+    
+	public String getHttP_user_agent_info() {
+		return httP_user_agent_info;
+	}
+	public void setHttP_user_agent_info(String httP_user_agent_info) {
+		this.httP_user_agent_info = httP_user_agent_info;
+	}
 	public String getMethod() {
 		return method;
 	}

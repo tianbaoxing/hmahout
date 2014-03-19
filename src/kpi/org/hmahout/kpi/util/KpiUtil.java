@@ -1,7 +1,11 @@
 package org.hmahout.kpi.util;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.hmahout.kpi.entity.Kpi;
 
@@ -15,7 +19,7 @@ public class KpiUtil {
 	 * */
 	public static Kpi transformLineKpi(String line) {
 		String[] elementList = line.split(" ");
-		if(elementList.length<=13){
+		if(elementList.length<=10){
 			System.out.println(line);
 			return null;
 		}
@@ -29,10 +33,37 @@ public class KpiUtil {
 		kpi.setStatus(elementList[8]);
 		kpi.setBody_bytes_sent(elementList[9]);
 		kpi.setHttp_referer(elementList[10]);
-		kpi.setHttp_user_agent(elementList[11] + " " + elementList[12]);
+
+		 if (elementList.length > 11) {
+	            kpi.setHttp_user_agent(elementList[11] );
+	            kpi.setHttP_user_agent_info(line.substring(line.indexOf(elementList[11])));
+	     } 
+        if (elementList.length > 12) {
+            kpi.setHttp_user_agent(elementList[11] + " " + elementList[12]);
+         }
+        
 		return kpi;
 	}
+	
+	public static String getDomain(String url){
+		Pattern p = Pattern.compile("(?<=http://|\\.)[^.]*?\\.(com|cn|net|org|biz|info|cc|tv)"
+				,Pattern.CASE_INSENSITIVE);
+		Matcher matcher = p.matcher(url);
+		if(matcher.find()){
+			return matcher.group();
+		}else{
+			return url;
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		getDomain(null);
+	}
 
+	public static boolean isNull(Kpi kpi){
+		return kpi==null?true:false;
+	}
 	public static boolean isValid(Kpi kpi) {
 		if (kpi == null) {
 			return false;
