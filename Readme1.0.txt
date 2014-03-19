@@ -37,3 +37,6 @@ Notice:
  	1）把algorithm.xml放在$TOMCAT_HOME\conf\Catalina\localhost  tomcat根目录下的文件夹路径，修改其中相应的目录为我发给你工程你存放的相应路径；
  	2） 启动tomcat，浏览器中输入 http://localhost:8080/algorithm/test.jsp ,点击提交，然后跳转到测试ok页面，则说明环境ok，可以进行页面开发；
  	3） form提交的请求都是 *_Test 即可；  
+ 	
+ 	
+ 	https://github.com/tianbaoxing/hmahout.git
