@@ -1,7 +1,5 @@
 package org.hmahout.kpi.util;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
